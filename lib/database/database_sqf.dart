@@ -5,12 +5,12 @@ import 'package:sqflite/sqflite.dart';
 class DatabaseSqlite {
   
   //Future<Database> openConnection() async {
-    Future<void> openConnection() async {
+    Future<Database> openConnection() async {
 
     final databasePath = await getDatabasesPath();
     final databasesFinalPath = join(databasePath, 'SQLITE_EXAMPLE');
 
-    await openDatabase(
+    return await openDatabase(
       databasesFinalPath,
       version: 3,
       onConfigure: (db) async {
